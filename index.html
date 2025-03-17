@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estelle Saab - Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #1e1e1e;
+            color: #e0e0e0;
+            text-align: center;
+            transition: background 0.5s, color 0.5s;
+        }
+        
+        /* Light Mode Styles */
+        body.light-mode {
+            background: #f5f5f5;
+            color: #333;
+        }
+
+        header {
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.4);
+            position: relative;
+        }
+
+        body.light-mode header {
+            background: rgba(255, 255, 255, 0.8);
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        nav a {
+            color: #e0e0e0;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease-in-out;
+        }
+
+        body.light-mode nav a {
+            color: #333;
+        }
+
+        nav a:hover {
+            color: #d4af37;
+        }
+
+        section {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            text-align: left;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background 0.5s, color 0.5s, opacity 1s, transform 1s;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+
+        body.light-mode section {
+            background: rgba(0, 0, 0, 0.05);
+        }
+
+        section.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        img {
+            display: block;
+            margin: 20px auto;
+            width: 200px;
+            height: 220px;
+            border-radius: 50%;
+            border: 4px solid #d4af37;
+        }
+
+        a {
+            color: #8ab4f8; /* Purple for light mode */
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease-in-out;
+        }
+
+        /* Dark Mode Link Color */
+        body.dark-mode a {
+            color: #8ab4f8; /* Light blue for visibility */
+        }
+
+        /* Hover Effect */
+        a:hover {
+            text-decoration: underline;
+        }
+
+
+        footer {
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.3);
+            transition: background 0.5s;
+        }
+
+        body.light-mode footer {
+            background: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Dark Mode Toggle Button */
+        .toggle-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            background: linear-gradient(to right, #444, #222);
+            color: #fff;
+            border-radius: 5px;
+            transition: background 0.3s ease-in-out, transform 0.2s;
+        }
+
+        body.light-mode .toggle-button {
+            background: linear-gradient(to right, #ddd, #bbb);
+            color: #333;
+        }
+
+        .toggle-button:hover {
+            transform: scale(1.05);
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <button class="toggle-button" onclick="toggleMode()">🌙 Dark Mode</button>
+        <img src="./estelle.jpeg" alt="Estelle Saab" class="profile-img" data-bs-toggle="modal" data-bs-target="#imageModal">
+                <!-- Bootstrap Modal (Place this right after <header> OR before </body>) -->
+        <div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content bg-dark text-white">
+                <div class="modal-body text-center">
+                <img src="./estelle.jpeg" class="img-fluid rounded" alt="Maria Saad">
+                </div>
+            </div>
+            </div>
+        </div>
+  
+        <h1>Estelle Saab</h1>
+        <p>Computer Engineering | Object Oriented Programming | Project Manager </p>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#certificates">Certificates</a></li>
+                <li><a href="#extracurricular">Extracurricular Activities</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+
+    </header>
+    
+    <section id="about">
+        <h2>About Me</h2>
+        <p>I am a dedicated Computer Engineering student at McGill University, complemented by a minor in Psychology, with a passion for bridging technology and human-centered solutions. My diverse academic background and hands-on experience in social media marketing, project management, and software development have equipped me with strong analytical, technical, and leadership skills. Fluent in French, English, and Arabic, I thrive in multicultural environments and value collaboration and community engagement. My involvement in extracurricular activities, such as leading social impact projects through Enactus and organizing cultural events at 961 Calling McGill, reflects my commitment to creating meaningful change both inside and outside the tech world.</p>
+    </section>
+    
+    <section id="education">
+        <h2>Education</h2>
+        <p><strong>McGill Univeristy, Montreal</strong> (2021 - 2026) - Bachelor of Engineering, Computer - Minor in Psychology</p>
+        <p>Relevant Courses: 
+            <ul>
+            <li>Object-oriented programming course and model-based programming: formalism in medium to large scale, integration of modeling with programming. </li>
+            <li>Data structures and algorithms: design a chess board on Java. Digital logic and computer organization.</li>
+            <li>Design principles and methods: project management, engineering process and design. </li>
+            <li>Theoretical and practical aspects of modern operating systems.</li>
+        </ul></p>
+        <br>
+        <p><strong>College Louise Wegmann, Beirut</strong> (2018 - 2021) - French Baccalaureate with distinction</p>
+    </section>
+    
+    <section id="experience">
+        <h2>Professional Experience</h2>
+        <ul>
+            <li><strong>Social Media Marketer, Marketing Department </strong> - Prep 101 (Sept 2021 - Dec 2022)<br>
+                - Posted advertisements on social media platforms using analytic approaches. <br>
+                - Ensured smooth operation of ads and offered support by answering questions and joining targeted groups.  </li>
+            <br>
+            <li><strong>Intern, Sales and Marketing Team</strong> - Microsoft Corporation (Jul 2020 - Aug 2020)<br>
+                - Participated with the marketing team in several projects that consists of the creation of a campaign to promote Microsoft products to companies in the UAE. <br>
+                - Developed applications using Power App and analyzed the market targeting the right customers. 
+</li>
+            <br>
+            </ul>
+    </section>
+    
+    <section id="projects">
+        <h2>Projects</h2>
+        <ul>
+            <li><strong>Operating System Shell Development</strong><br>
+                - Designed a Unix-like shell in C, supporting job control, I/O redirection, and inter-process communication.<br>
+                - Managed process execution using fork(), exec(), and wait(), with integrated signal handling.<br>
+                <a href="YOUR_GITHUB_LINK_HERE" target="_blank">GitHub Repository</a>
+            </li>
+            <br>
+            
+            <li><strong>Computer Vision Projects & Deep Learning – Image Processing & Object Recognition</strong><br>
+                - Built image segmentation and classification models using PyTorch, TensorFlow, and OpenCV.<br>
+                - Trained a semantic segmentation model (U-Net/DeepLabV3) on the Oxford-IIIT Pets Dataset.<br>
+                - Participated in a Kaggle competition, optimizing model performance with data augmentation and hyperparameter tuning.<br>
+                <a href="YOUR_GITHUB_LINK_HERE" target="_blank">GitHub Repository</a>
+            </li>
+            <br>
+            
+            <li><strong>ARMv7 Assembly Programming – Embedded Systems & I/O Interfacing</strong><br>
+                - Developed low-level assembly programs using DE1-SoC, implementing device drivers for LEDs, push-buttons, and displays. <br>
+                - Built a calculator program and an interrupt-driven character display system. <br>
+                - Wrote PS/2 keyboard & VGA drivers, integrating them into a Game of Life simulation.<br>
+                <a href="YOUR_GITHUB_LINK_HERE" target="_blank">GitHub Repository</a>
+            </li>
+            <br>
+            
+            <li><strong>Hotel Management Web Application – Full Stack Development</strong><br>
+                - Developed a multi-tier hotel management system using Java Spring Boot (backend) and Vue.js (frontend).<br>
+                - Implemented REST APIs, role-based authentication, and payment processing.<br>
+            <a href="YOUR_GITHUB_LINK_HERE" target="_blank">GitHub Repository</a>
+            </li>
+            <br>
+            
+            <li><strong>Autonomous Delivery Robot – Embedded Systems & Robotics</strong><br>
+                - Designed and built an autonomous mobile robot using LEGO + BrickPi, integrating sensor-based navigation.<br>
+                - Implemented line-following algorithms and a computer vision system to recognize delivery zones.<br>
+                - Engineered an efficient route-planning algorithm, optimizing package deliveries.<br>
+                <a href="YOUR_GITHUB_LINK_HERE" target="_blank">GitHub Repository</a>
+            </li>
+            <br>
+
+            <li><strong>FPGA Digital Logic Design – VHDL & Embedded Systems</strong><br>
+                - Designed digital circuits in VHDL on the Altera DE1-SoC board, including a 4-bit comparator, up-counter, and FSM-based sequence detector. <br>
+                - Built a BCD to 7-segment decoder and performed timing analysis with Quartus.<br>
+                - Verified functionality through ModelSim simulations and FPGA deployment. <br>
+                <a href="YOUR_GITHUB_LINK_HERE" target="_blank">GitHub Repository</a>
+            </li>
+            <br>
+
+            <li><strong>Java & C Programming – Algorithms & Game Development</strong><br>
+                - Developed Java-based projects including a recursive maze solver and chess game engine.<br>
+                - Built a Pong game simulation with collision detection, AI-powered paddle, and real-time controls. <br> 
+                - Implemented a base conversion program in C.<br>
+                <a href="YOUR_GITHUB_LINK_HERE" target="_blank">GitHub Repository</a>
+            </li>
+            <br>   
+        </ul>
+    </section>
+
+    <section id="skills">
+        <h2>Skills </h2>
+        <ul>
+            <li><strong>Programming Languages:</strong> Java, Python, C, C+, VHDL, Assembly, MS Office.</li><br>
+            <li><strong>Web Development:</strong> HTML, CSS, JavaScript, React, Bootstrap, Node.js, Express.js</li><br>
+            <li><strong>Databases: </strong>MySQL, MongoDB</li><br>
+            <li><strong>Operating Systems: </strong>Linux, MacOS, Windows</li><br>
+            <li><strong>Technologies: </strong>GitHub, GitLab</li><br>
+            <li><strong>Problem Solving & Algorithm Development</strong></li><br>
+        </ul>
+    </section>
+
+    <section id="certificates">
+        <h2>Certificates</h2>
+        <ul>
+            <li>Project Management Foundation – PMI </li><br>
+            <li>Introduction to Cybersecurity – Cisco </li><br>
+            <li>Internet of Things – MIT </li><br>
+            <li>Introduction to Data Science – IE Univeristy </li><br>
+            <li>Accenture Australia Technology Consulting Job Simulation on Forage</li><br>
+            <li>Standard First Aid and CPR – Red Cross </li><br>
+            <li>Psychological First Aid – Red Cross </li><br>
+        </ul>
+    </section>
+
+    <section id="extracurricular">
+        <h2>Extracurricular Activities</h2>
+        <ul>        
+            <li><strong>Project Manager, McGill Entrepreneurship Club </strong> - Enactus McGill (Sept 2024 - Present)<br>
+                - Coordinating the Game Changers Project, which promotes sports in underprivileged communities in Montreal, aiming to improve physical health and provide personal growth opportunities through sports.  </li>
+            <br>
+            <li><strong>Events Director, McGill Cultural Club</strong> - 961 Calling McGill (Sept 2024 - Present)<br>
+                - Coordinated a successful annual networking event, ensuring seamless execution through teamwork and communication.
+            </li>
+            <br>
+            </ul>
+
+    </section>
+    
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>Email: <a href="mailto:estellesaab@icloud.com">estellesaab@icloud.com</a></p>
+        <p>Phone: +1 (514) 961-9627</p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/estelle-saab/">Estelle Saab</a></p>
+    </section>
+    
+    <footer>
+        <p>&copy; 2025 Estelle Saab. All rights reserved.</p>
+    </footer>
+    <script>
+        function toggleMode() {
+            const body = document.body;
+            const button = document.querySelector('.toggle-button');
+            
+            // Toggle light mode correctly
+            body.classList.toggle('light-mode');
+            
+            // Update button text dynamically
+            if (body.classList.contains('light-mode')) {
+                button.textContent = "🌙 Dark Mode";
+            } else {
+                button.textContent = "🌞 Light Mode";
+            }
+        }
+        function loadTheme() {
+            const body = document.body;
+            const button = document.querySelector('.toggle-button');
+            
+            // Default to light mode if no preference is set
+            const savedTheme = localStorage.getItem('theme') || 'light';
+
+            if (savedTheme === 'light') {
+                body.classList.add('light-mode');
+                button.textContent = "🌙 Dark Mode";
+            } else {
+                body.classList.remove('light-mode');
+                button.textContent = "☀️ Light Mode";
+            }
+        }
+
+        // Run loadTheme() when the page loads
+        document.addEventListener("DOMContentLoaded", loadTheme);
+                
+
+        function revealSections() {
+            const sections = document.querySelectorAll("section");
+            const windowHeight = window.innerHeight;
+            
+            sections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+                if (sectionTop < windowHeight - 100) {
+                    section.classList.add("show");
+                }
+            });
+        }
+
+        window.addEventListener("scroll", revealSections);
+        window.addEventListener("load", revealSections);
+
+    </script>
+</body>
+</html>
